@@ -10,20 +10,20 @@
 		<div class="col-xs-9 battle_area"></div>
 		<div class="col-xs-3">
 			
-			<div class="pokemon_card bounceInRight">
+			<div class="pokemon_card">
 				
 				<a class="pokemon_img">
 					<div class="poke_name">
-						Blue fin tuna
+						{{ activeWildAnimal.name }}
 					</div>
 					<div class="poke_stats">
 						<div class="HP">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: 45%"></div>
+								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeWildAnimal.hp / activeWildAnimal.maxHp * 100 }}%;">{{ activeWildAnimal.hp }} / {{ activeWildAnimal.maxHp }}</div>
 							</div>
 						</div>
 					</div>
-					<img src="http://wildnet.derm.qld.gov.au/wws/images/4220"/>
+					<img style="max-width:100%;" src="{{ activeWildAnimal.image }}" />
 				</a>
 				
 				<div class="btn-group btn-group-justified poke_control">
@@ -43,48 +43,37 @@
 		<div class='padd2'></div>
 		<img src="../images/B.png" width="960" height="385" alt="B">
 	</li>
+	<li class="layer expand-wdth" data-depth=".26" >{{ battleMessage }}</div>
 	<li class="layer expand-width" data-depth=".34" > 
 		<div class='padd3'></div>
 		<img src="../images/A.png" width="960" height="385" alt="A">
 	</li>
 	<li class="layer expand-width" data-depth=".40" id="my_pokemon">
 		<div class="col-xs-4">
-			<div class="pokemon_card bounce " >
+			<div class="pokemon_card" >
 				<a class="pokemon_img">
 					<div class="poke_name">
-						Blue fin tuna
+						{{ activeAnimal.name }}
 					</div>
 					<div class="poke_stats">
 						<div class="HP">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: 45%"></div>
+								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeAnimal.hp / activeAnimal.maxHp * 100 }}%;">{{ activeAnimal.hp }} / {{ activeAnimal.maxHp }}</div>
 							</div>
 						</div>
 					</div>
-					<img src="http://wildnet.derm.qld.gov.au/wws/images/14876"/>
+					<img style="max-width:100%;" src="{{ activeAnimal.image }}" />
 				</a>
 				
-				<div class="btn-group btn-group-justified poke_control">
-				
-					<div class="btn-group">
-						<button type="button" class="btn btn-default">
-							<div class="col-xs-6">
-								Fight
+				<div ng-repeat="attack in activeAnimal.attacks" class="btn-group btn-group-justified poke_control">
+					<div class="btn-group col-xs-6">
+						<button type="button" class="btn btn-default" ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)">
+							<div>
+								{{ attack.name }}
 							</div>
-							<div class="col-xs-6">
-								<div class="stats row ">Hit Point: 30</div>
-								<div class="stats row">Chance: 10%</div>
-							</div>
-						</button>
-					</div>
-					<div class="btn-group">
-						<button type="button" class="btn btn-default">
-							<div class="col-xs-6">
-								Bite
-							</div>
-							<div class="col-xs-6">
-								<div class="stats row ">Hit Point: 30</div>
-								<div class="stats row">Chance: 10%</div>
+							<div>
+								<div class="stats row">Hit Point: {{ attack.attackPower }}</div>
+								<div class="stats row">Chance: {{ attack.accuracy }}</div>
 							</div>
 						</button>
 					</div>
