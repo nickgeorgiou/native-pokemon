@@ -1,0 +1,47 @@
+<style>
+.pokedex{
+	background-color:#ccc;
+}
+
+.poke_thumbnail{
+	height:48px;
+	width:48px;
+	overflow:hidden;
+}
+
+.poke_thumbnail img{
+	height:48px;
+}
+
+.pokedex_img{
+}
+.pokedex_img img{
+	width:100%;
+}
+.poke_list{
+	height:624px;
+	overflow:scroll;
+}
+</style>
+<div class="col-md-4">
+	<ul class="media-list poke_list" >
+		<div class="media" href="#" ng-repeat="animal in animals" ng-click="query(animal.fancyName);">
+			<div class="pull-left" href="#">
+				<div class="poke_thumbnail">
+					<img class="media-object " ng-src="{{animal.image}}">
+				</div>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">{{animal.name}}</h4>
+				<p>{{animal.fancyName}}</p>
+			</div>
+		</div>
+	</ul>
+</div>
+
+<div class="col-md-8">
+	<div class="file">
+		<h1>{{selectedAnimal.AcceptedCommonName}}</h1>
+		<div class="col-md-6 pokedex_img"><img ng-src="{{selectedAnimal._SpeciesProfile.Image[0].URL}}"></div>
+	</div>
+</div>

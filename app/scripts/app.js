@@ -13,6 +13,10 @@ angular
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
+            .when('/pokedex', {
+              templateUrl: 'views/pokedex.html',
+              controller: 'PokedexCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
