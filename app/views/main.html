@@ -1,101 +1,79 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="pokemon_card {{ activeAnimal.className }}" ng-class="activeAnimal.animation">
 
-<ul id="scene" class="scene border fill" >
-	<li class="layer " data-depth=".4">
-		<img src="../images/clould-01.png" width="960" height="385" alt="Clould 01">
-	</li>
-	<li class="layer expand-width " data-depth=".13" id="poke_bg">
-		<div class='padd1'></div>
-		<img src="../images/c.png" width="960" height="385" alt="C">
-	</li>
-	<li class="layer expand-width " data-depth=".2" id="other_poke">
-		<div class="col-xs-9 battle_area"></div>
-		<div class="col-xs-3">
-			
-			<div class="pokemon_card">
-				
-				<a class="pokemon_img">
-					<div class="poke_name">
-						{{ activeWildAnimal.name }}
-					</div>
-					<div class="poke_stats">
-						<div class="HP">
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeWildAnimal.hp / activeWildAnimal.maxHp * 100 }}%;">{{ activeWildAnimal.hp }} / {{ activeWildAnimal.maxHp }}</div>
-							</div>
-						</div>
-					</div>
-					<img style="max-width:100%;" src="{{ activeWildAnimal.image }}" />
-				</a>
-				
-				<div class="btn-group btn-group-justified poke_control">
-				
-					<div class="btn-group">
-						<button type="button" class="btn btn-default">
-							About this pokemon
-						</button>
-					</div>
-				</div>
-			</div>
-		  	
-		</div>
-	</li>
-	
-	<li class="layer expand-width" data-depth=".26" > 
-		<div class='padd2'></div>
-		<img src="../images/B.png" width="960" height="385" alt="B">
-	</li>
-	<li class="layer expand-wdth" data-depth=".26" >{{ battleMessage }}</div>
-	<li class="layer expand-width" data-depth=".34" > 
-		<div class='padd3'></div>
-		<img src="../images/A.png" width="960" height="385" alt="A">
-	</li>
-	<li class="layer expand-width" data-depth=".40" id="my_pokemon">
-		<div class="col-xs-4">
-			<div class="pokemon_card" >
-				<a class="pokemon_img">
-					<div class="poke_name">
-						{{ activeAnimal.name }}
-					</div>
-					<div class="poke_stats">
-						<div class="HP">
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeAnimal.hp / activeAnimal.maxHp * 100 }}%;">{{ activeAnimal.hp }} / {{ activeAnimal.maxHp }}</div>
-							</div>
-						</div>
-					</div>
-					<img style="max-width:100%;" src="{{ activeAnimal.image }}" />
-				</a>
-				
-				<div ng-repeat="attack in activeAnimal.attacks" class="btn-group btn-group-justified poke_control">
-					<div class="btn-group col-xs-6">
-						<button type="button" class="btn btn-default" ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)">
-							<div>
-								{{ attack.name }}
-							</div>
-							<div>
-								<div class="stats row">Hit Point: {{ attack.attackPower }}</div>
-								<div class="stats row">Chance: {{ attack.accuracy }}</div>
-							</div>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</li>
-		
-</ul>
-	<div class="header">
-	<ul class="nav nav-pills pull-right">
-	<li class="active"><a ng-href="#">Home</a></li>
-	<li><a ng-href="#">About</a></li>
-	<li><a ng-href="#">Contact</a></li>
-	</ul>
-	<h3 class="text-muted">Pokemon</h3>
-	</div>	
-<script>
-// Nothing new here...it's all in the CSS!
-var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
+            <div class="poke_name">
+                {{ activeAnimal.name }}
+            </div>
+            <div class="HP">{{ activeAnimal.hp }}HP</div>
+            <div class="poke_stats">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeAnimal.hp / activeAnimal.maxHp * 100 }}%;"></div>
+                </div>
 
-</script>
-	
+            </div>
+            <div class="pokemon_img">
+                <img src="{{ activeAnimal.image }}" />
+            </div>
+
+            <div ng-repeat="attack in activeAnimal.attacks" class="btn-group btn-group-justified poke_control">
+                <div class="btn-group nopadding">
+                    <button class="btn btn-default" ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)" ng-disabled="isNotPlayersTurn">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <div class="attack-name">
+                                    {{ attack.name }}
+                                </div>
+                                <div class="attack-description">
+                                    {{ attack.description }}
+                                </div>
+                            </div>
+                            <div class="attack-hp col-xs-3">
+                                {{ attack.attackPower }}HP
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="battle-message">
+            {{ battleMessage }}
+        </div>
+        <div ng-show="!isNotPlayersTurn" class="hover do-next nopadding">
+            <div class="col-xs-2 left-arrow nopadding">&#9668;</div>
+            <div class="col-xs-10">What would you like to do?</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="pokemon_card {{ activeWildAnimal.className }}" ng-class="activeWildAnimal.animation">
+            <div class="poke_name">
+                {{ activeWildAnimal.name }}
+            </div>
+            <div class="HP">
+                {{ activeWildAnimal.hp }}HP
+            </div>
+            <div class="poke_stats">
+
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: {{ activeWildAnimal.hp / activeWildAnimal.maxHp * 100 }}%;"></div>
+                </div>
+            </div>
+            <div class="pokemon_img">
+                <img src="{{ activeWildAnimal.image }}" />
+            </div>
+
+            <div class="btn-group btn-group-justified poke_control">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">
+                        About this animal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    Your Animals: {{ capturedAnimals.length }}
+</div>
