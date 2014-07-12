@@ -1,127 +1,160 @@
+@font-face {
+    font-family: pokefont;
+    src: url('museo_slab_500-webfont.ttf');
+}
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10vh;
+	min-height:80px;
+	background-color:#d0e75b;
+}
+
+html{
+	position: relative;
+	min-height: 100%;
+	overflow:hidden;
+	
+}
 body{
+	
 	height:100%;
 	width:100%;
 	background-color:#E5F5F9;
 }
-.empty{
-	width:100%;
-}
-.padd1{
-	height:48vh;
-}
-.padd2{
-	height:53vh;
-}
-.padd3{
-	height:55vh;
+
+.container{
+	max-width:1024px;
 }
 
-#scene{
-	position:absolute;
-	bottom:0;
-	height:100%;
+
+.pull-right {
+  float: right !important;
 }
 
-#poke_bg img{
-	width:100%;
+.pull-left {
+  float: left !important;
+}
+
+.moreinfo{
+	text-align:right;
+}
+.battle_text{
+	padding-top:20%;
+	width:30%;
+	text-align:center;
+	margin:0 auto;
+	
+	
+}
+.battle_text p{
+	color:#FFD4C3;
+	background:#b32e00;
+	display:block;
 	height:auto;
+	width:100%;
+	border: solid 5px #7B000D;
+	box-shadow: inset  5px 5px 0 0 #5A0500, inset  -5px -5px 0 0 #991314;
+	padding:1em;
+	font-size:1.5vw;
+	font-family: pokefont !important;
+	text-shadow: -2px -2px 0 #571001;
+	
 }
-#other_poke{
-	opacity:0.7;
-	padding-top:5em;
+
+#other_poke .pokemon_card{
 }
 
 #my_pokemon{
 }
-.pokemon_card{
-	border-radius:3px;
-	position:relative;
-	background:#fff;
-	box-shadow:0 0 5px #c0c0c0;
-	margin-top:10vw;
+
+.move_name{
+	text-align:left;
+	font-family: pokefont !important;
+	padding-top:0.5em;
+	padding-left:0;
+}
+.poke_name{
+	font-weight:700;
+	text-transform:uppercase;
+	font-family: pokefont !important;
+	text-shadow: -1px -1px 0 #052B03;
+	font-size:1.2em;
+	color:#3DBC1B;
 }
 
 .pokemon_img{
-    background-clip: padding-box;
 	overflow:hidden;
 	text-align:center;
-	border-radius:4px ;
-	height:100%;
-	border-color:#ddd;
-}
-
-.pokemon_img img{
-	width:100%;
-}
-
-.pokemon_move{
-	width:100%;
+	height:40%;
+	margin: 1em 0
 }
 
 
-.poke_name{
-	position:absolute;
-	width:90%;
-	text-align:center;
-	left:5%;
-	bottom:2.5em;
-	color:#fff;
-	font-size:1vw;
-	font-weight:700;
-	text-transform:uppercase;
-}
-
-.poke_stats{
-	width:90%;
-	text-align:center;
-	height:5px;
-	margin-top:1em;
-	left:5%;
+.pokemon_card{
+	height:450px;
+	min-height:20%;
 	overflow:hidden;
-	position:absolute;
+	padding:1em;
+	margin-top:10%;
+	border-radius:3px;
+	box-shadow:0 0 5px #333;
+	background:URL("http://paper-backgrounds.com/textureimages/2012/07/old-white-seamless-paper-texture-500x500.jpg");
+	border: solid 4px #FCCF10;
+}
+
+
+.poke_control .btn{
+	border-radius:0;
+	font-style:400;
+	
+	background-color:#0B76D0;;
+	color:#AED6DF;
+	text-shadow: -1px -1px 0 #001F58;
+	margin-bottom:0.5em;
+	font-family: pokefont !important;
+}
+.poke_control .btn:hover{
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+}
+.poke_control .btn:active{
+	box-shadow:inset 0px 0px 3px rgba(0,0,0,0.6);
+}
+
+.cardfoot{
+	bottom:0;
+	font-family: pokefont !important;
+	height:40px;
+	font-size:1.5em;
+	width:100%;
 }
 .progress{
 	border-radius:0;
-}
-
-.HP {
-	
-}
-.HP .progress{
 	background-color:rgba(255,0,0,0.3);
+	margin:0;
 	
 }
 
-.HP .stat_label{
-	color:rgba(255,0,0,1);
-	text-style:500;
-}
-.HP .progress-bar{
+
+.progress-bar{
 	background-color:rgba(255,0,0,1);
 }
-.stat_label {
-	text-align:right;
-}
-
-.poke_control{
-	width:100%;
-	
-}
 .btn-group{
-	border-radius:3px 0 0 3px;
-}
-.btn{
-	font-size:1.4em;
-	border-radius:0;
-	font-style:400;
-	border:none;
-	background-color:#1E8C99;
-	color:#fff;
+	width:100%;
 }
 
+.layer{
+	width:100%;
+}
+.pra{
+	width:100%;
+	margin:0 auto;
+}
 
 .stats{
-	font-size:0.5em;
+	font-size:0.8vw;
 }
 
 /*animation here*/
