@@ -3,6 +3,9 @@ body{
 	width:100%;
 	background-color:#E5F5F9;
 }
+.empty{
+	width:100%;
+}
 .padd1{
 	height:48vh;
 }
@@ -12,12 +15,6 @@ body{
 .padd3{
 	height:55vh;
 }
-.g-a{
-	height:100%;
-	position:absolute;
-	bottom:30px;
-}
-
 
 #scene{
 	position:absolute;
@@ -35,9 +32,6 @@ body{
 }
 
 #my_pokemon{
-}
-
-.battle_area{
 }
 .pokemon_card{
 	border-radius:3px;
