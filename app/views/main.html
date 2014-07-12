@@ -22,13 +22,12 @@
         {{ battleMessage }}
     </div>
 </div>
-<pre>
-{{ isNotPlayersTurn }}</pre>
 <div class="row">
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2>{{ activeAnimal.name }}</h2>
+                <h2 style="text-transform:capitalize">{{ activeAnimal.name }}</h2>
+                <img style="max-width:100%;" class="thumbnail" src="{{ activeAnimal.image }}" />
                 <div class="progress">
                     <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ activeAnimal.hp / activeAnimal.maxHp * 100 }}%;">{{ activeAnimal.hp }} / {{ activeAnimal.maxHp }}
                     </div>
@@ -44,7 +43,8 @@
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2>{{ activeWildAnimal.name }}</h2>
+                <h2 style="text-transform:capitalize">{{ activeWildAnimal.name }}</h2>
+                <img style="max-width:100%;" class="thumbnail" src="{{ activeWildAnimal.image }}" />
                 <div class="progress">
                     <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ activeWildAnimal.hp / activeWildAnimal.maxHp * 100 }}%;">{{ activeWildAnimal.hp }} / {{ activeWildAnimal.maxHp }}
                     </div>
