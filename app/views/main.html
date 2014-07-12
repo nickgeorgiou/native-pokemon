@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <ul id="scene" class="scene border fill" >
 	<li class="layer " data-depth=".4">
@@ -114,3 +115,94 @@ var parallax = new Parallax(scene);
 	
 	
     
+=======
+{{ awesomeThings }}
+<div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li class="active"><a ng-href="#">Home</a>
+        </li>
+        <li><a ng-href="#">About</a>
+        </li>
+        <li><a ng-href="#">Contact</a>
+        </li>
+    </ul>
+    <h3 class="text-muted">nick</h3>
+</div>
+
+<ul>
+    <li ng-repeat="awesomeThing in awesomeThings">
+        {{ awesomeThing }}
+        <button ng-click="addAgain(awesomeThing);">Add</button>
+    </li>
+</ul>
+<div class="row">
+    <div class="col-sm-12 battleMessage" style="text-align:center; font-size:20px;">
+        {{ battleMessage }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2 style="text-transform:capitalize">{{ activeAnimal.name }}</h2>
+                <img style="max-width:100%;" class="thumbnail" src="{{ activeAnimal.image }}" />
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ activeAnimal.hp / activeAnimal.maxHp * 100 }}%;">{{ activeAnimal.hp }} / {{ activeAnimal.maxHp }}
+                    </div>
+                </div>
+                <div ng-repeat="attack in activeAnimal.attacks">
+                    <button ng-disabled="isNotPlayersTurn" ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)" class="btn btn-default form-control">{{ attack.name }} ({{ attack.attackPower }})
+                        <em>Accuracy: {{ attack.accuracy }}</em>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2 style="text-transform:capitalize">{{ activeWildAnimal.name }}</h2>
+                <img style="max-width:100%;" class="thumbnail" src="{{ activeWildAnimal.image }}" />
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ activeWildAnimal.hp / activeWildAnimal.maxHp * 100 }}%;">{{ activeWildAnimal.hp }} / {{ activeWildAnimal.maxHp }}
+                    </div>
+                </div>
+                <div ng-repeat="wildAttack in activeWildAnimal.attacks">
+                    {{ wildAttack.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ wildAnimals }}
+
+<div class="jumbotron">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">
+        <img src="images/yeoman.png" alt="I'm Yeoman">
+        <br>Always a pleasure scaffolding your apps.
+    </p>
+    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a>
+    </p>
+</div>
+
+<div class="row marketing">
+    <h4>HTML5 Boilerplate</h4>
+    <p>
+        HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    </p>
+
+    <h4>Angular</h4>
+    <p>
+        AngularJS is a toolset for building the framework most suited to your application development.
+    </p>
+
+    <h4>Karma</h4>
+    <p>Spectacular Test Runner for JavaScript.</p>
+</div>
+
+<div class="footer">
+    <p>
+        <span class="glyphicon glyphicon-heart"></span>from the Yeoman team</p>
+</div>
+>>>>>>> FETCH_HEAD
