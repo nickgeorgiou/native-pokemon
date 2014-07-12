@@ -1,60 +1,116 @@
-{{awesomeThings}}<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">nick</h3>
-</div>
 
-<ul>
-  <li ng-repeat="awesomeThing in awesomeThings">
-      {{ awesomeThing }}
-      <button ng-click="addAgain(awesomeThing);">Add</button>
-  </li>
+<ul id="scene" class="scene border fill" >
+	<li class="layer " data-depth=".4">
+		<img src="../images/clould-01.png" width="960" height="385" alt="Clould 01">
+	</li>
+	<li class="layer expand-width " data-depth=".13" id="poke_bg">
+		<div class='padd1'></div>
+		<img src="../images/c.png" width="960" height="385" alt="C">
+	</li>
+	<li class="layer expand-width " data-depth=".2" id="other_poke">
+		<div class="col-xs-9 battle_area"></div>
+		<div class="col-xs-3">
+			
+			<div class="pokemon_card bounceInRight">
+				
+				<a class="pokemon_img">
+					<div class="poke_name">
+						Blue fin tuna
+					</div>
+					<div class="poke_stats">
+						<div class="HP">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: 45%"></div>
+							</div>
+						</div>
+					</div>
+					<img src="http://wildnet.derm.qld.gov.au/wws/images/4220"/>
+				</a>
+				
+				<div class="btn-group btn-group-justified poke_control">
+				
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">
+							About this pokemon
+						</button>
+					</div>
+				</div>
+			</div>
+		  	
+		</div>
+	</li>
+	
+	<li class="layer expand-width" data-depth=".26" > 
+		<div class='padd2'></div>
+		<img src="../images/B.png" width="960" height="385" alt="B">
+	</li>
+	<li class="layer expand-width" data-depth=".34" > 
+		<div class='padd3'></div>
+		<img src="../images/A.png" width="960" height="385" alt="A">
+	</li>
+	<li class="layer expand-width" data-depth=".40" id="my_pokemon">
+		<div class="col-xs-4">
+			<div class="pokemon_card bounce " >
+				<a class="pokemon_img">
+					<div class="poke_name">
+						Blue fin tuna
+					</div>
+					<div class="poke_stats">
+						<div class="HP">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuemax="100" style="width: 45%"></div>
+							</div>
+						</div>
+					</div>
+					<img src="http://wildnet.derm.qld.gov.au/wws/images/14876"/>
+				</a>
+				
+				<div class="btn-group btn-group-justified poke_control">
+				
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">
+							<div class="col-xs-6">
+								Fight
+							</div>
+							<div class="col-xs-6">
+								<div class="stats row ">Hit Point: 30</div>
+								<div class="stats row">Chance: 10%</div>
+							</div>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">
+							<div class="col-xs-6">
+								Bite
+							</div>
+							<div class="col-xs-6">
+								<div class="stats row ">Hit Point: 30</div>
+								<div class="stats row">Chance: 10%</div>
+							</div>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+		
 </ul>
-<div class="row">
-    <div class="col-sm-6" ng-repeat="animal in animals">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h2>{{ animal.name }}</h2>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: {{ animal.hp / animal.maxHp * 100 }}%;">
-                    <!-- <span class="sr-only">60% Complete</span> -->
-                  </div>
-                </div>
-                <button class="btn btn-default form-control">Tackle</button>
-                <button class="btn btn-default form-control">Thrash</button>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="header">
+	<ul class="nav nav-pills pull-right">
+	<li class="active"><a ng-href="#">Home</a></li>
+	<li><a ng-href="#">About</a></li>
+	<li><a ng-href="#">Contact</a></li>
+	</ul>
+	<h3 class="text-muted">Pokemon</h3>
+	</div>	
+<script>
+// Nothing new here...it's all in the CSS!
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);
 
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-</div>
+</script>
+	
+	
+	
+	
+    
