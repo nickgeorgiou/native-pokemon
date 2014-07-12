@@ -1,11 +1,4 @@
-<div class="header">
-	<ul class="nav nav-pills pull-right">
-		<li class="active"><a ng-href="#">Fight</a></li>
-		<li><a ng-href="#/pokedex">Hunting</a></li>
-		<li><a ng-href="#">Animalia</a></li>
-	</ul>
-	<h3 class="text-muted">Nativemon</h3>
-</div>
+
 <ul id="scene" >
 	
 	<li class="layer expand-width" data-depth=".13">
@@ -14,9 +7,13 @@
 	<li class="layer expand-width " data-depth=".1">
 		<img class="pra" src="../images/clould-01.png">
 	</li>
-	<li class="layer expand-width " data-depth=".2" id="other_poke">
+	<li class="layer expand-width " data-depth=".12" id="other_poke">
 		<div class="col-sm-4 pull-right">
-			<div class="pokemon_card">
+			
+			<div class="pokemon_card" ng-class="activeWildAnimal.animation">
+				<div class="hurt">
+					<img src="../images/punch.png">
+				</div>
 				<div class="poke_name ">
 					{{activeWildAnimal.name }}
 				</div>
@@ -38,24 +35,27 @@
 	</li>
 	
 	
-	<li class="layer expand-width" data-depth=".26" >
+	<li class="layer expand-width" data-depth=".14" >
 		<img class="pra" src="../images/B.png" ></img>
 	</li>
 	
-	<li class="layer expand-width " data-depth=".3" >
+	<li class="layer expand-width " data-depth=".16" >
 		<div class=" battle_text">
 			<p>{{battleMessage}}</p>
 		</div>
 	</li>
 	
-	<li class="layer expand-width" data-depth=".34" >
+	<li class="layer expand-width" data-depth=".18" >
 		
 		<img class="pra" src="../images/c.png"/>
 	</li>
 	
-	<li class="layer expand-width" data-depth=".40" id="my_pokemon">
+	<li class="layer expand-width" data-depth=".2" id="my_pokemon" ng-class="activeAnimal.animation">
 		<div class="col-sm-4">
 			<div class="pokemon_card">
+				<div class="hurt">
+					<img src="../images/punch.png">
+				</div>
 				<div class="poke_name">
 					{{ activeAnimal.name }}
 				</div>
@@ -73,9 +73,9 @@
 					<div class="rare pull-left">Endangered</div>
 					<div class="pull-right moreinfo"> About</div>
 				</div>
-				<div ng-repeat="attack in activeAnimal.attacks" class="btn-group btn-group-justified poke_control ">
+				<div ng-repeat="attack in activeAnimal.attacks"  ng-show="{{!isNotPlayersTurn}}" class="btn-group btn-group-justified poke_control ">
 					<div class="btn-group">
-						<button type="button" class="btn btn-default" ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)">
+						<button type="button" class="btn btn-default"ng-click="playerAttack(activeAnimal, activeWildAnimal, attack)">
 							<div class="col-sm-2 move_name">
 								{{ attack.name }}
 							</div>
@@ -98,7 +98,9 @@
 <script>
 // Nothing new here...it's all in the CSS!
 var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
+var parallax = new Parallax(scene,{
+	frictionX: 0.2,
+  	frictionY: 0.2,});
 
 </script>
 	

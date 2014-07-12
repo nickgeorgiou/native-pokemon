@@ -56,10 +56,11 @@ angular.module('nickApp')
 	
 	$scope.query=function(fancyname){
 		//alert(fancyname);
-		alert("http://api.trove.nla.gov.au/result?key=1p4a3kdeljvvldl8&encoding=json&zone=book&q="+fancyname);
-	    $http.jsonp('http://api.trove.nla.gov.au/result?key=1p4a3kdeljvvldl8&encoding=json&zone=book&q='+fancyname).success(function(data, status, headers, config){
-	    	alert(data);
-	    });
+		//("http://api.trove.nla.gov.au/result?key=1p4a3kdeljvvldl8&encoding=json&zone=book&q="+fancyname);
+	    /*$http.jsonp('http://api.trove.nla.gov.au/result?key=1p4a3kdeljvvldl8&encoding=json&zone=book&q='+fancyname).success(function(data, status, headers, config){
+	    	console.log(data.);
+	    });*/
+		
 		
 	};
     $scope.cleanData = function() {
@@ -72,6 +73,7 @@ angular.module('nickApp')
                 image: jsonAnimal._SpeciesProfile.Image[0].URL,
 				rare:jsonAnimal.ConservationStatus.ConservationSignificant,
 				fancyName:jsonAnimal.ScientificName,
+				spottedby:jsonAnimal._SpeciesProfile.Image[0].URL,
             };
            
                 $scope.animals.push(animalToAdd);
